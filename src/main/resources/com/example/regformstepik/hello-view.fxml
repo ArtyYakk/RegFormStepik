@@ -93,7 +93,7 @@
                   <Font size="17.0" />
                </font>
             </Text>
-            <PasswordField fx:id="passTwo" layoutX="582.0" layoutY="562.0" prefHeight="40.0" prefWidth="213.0" promptText="Пароль" style="-fx-border-color: #00ff04; -fx-border-radius: 10; -fx-background-color: black;">
+            <PasswordField fx:id="passTwo" layoutX="582.0" layoutY="562.0" prefHeight="40.0" prefWidth="213.0" promptText="Повторите пароль" style="-fx-border-color: #00ff04; -fx-border-radius: 10; -fx-background-color: black;">
                <font>
                   <Font size="17.0" />
                </font>
@@ -110,7 +110,7 @@
                </font>
             </Text>
             <ComboBox fx:id="country" layoutX="583.0" layoutY="46.0" prefHeight="40.0" prefWidth="213.0" promptText="Страна" style="-fx-background-color: black; -fx-border-color: #00ff04; -fx-border-radius: 10;" />
-            <CheckBox layoutX="825.0" layoutY="108.0" mnemonicParsing="false" text="Другой" textFill="#00ff04">
+            <CheckBox fx:id="writeYourCity" layoutX="825.0" layoutY="108.0" mnemonicParsing="false" text="Другой" textFill="#00ff04">
                <font>
                   <Font size="14.0" />
                </font>
@@ -121,6 +121,11 @@
                   <Font size="17.0" />
                </font>
             </TextField>
+            <Label fx:id="warning" layoutX="594.0" layoutY="605.0" prefHeight="27.0" prefWidth="192.0" textFill="RED">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children></AnchorPane>
    </children>
 </AnchorPane>

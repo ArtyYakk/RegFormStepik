@@ -2,6 +2,8 @@ package com.example.regformstepik;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,10 +21,15 @@ public class HelloController{
     private Slider ageSlider;
 
     @FXML
-    private ComboBox<?> city;
+    private ComboBox<String> city;
+    @FXML
+    private CheckBox writeYourCity;
+    boolean visibility = false;
+    ObservableList<String> cities;
 
     @FXML
-    private ComboBox<?> country;
+    private ComboBox<String> country;
+    String ctry = "";
 
     @FXML
     private TextField flat;
@@ -47,6 +54,8 @@ public class HelloController{
 
     @FXML
     private PasswordField passTwo;
+    @FXML
+    private Label warning;
 
     @FXML
     private Button registerButton;
@@ -68,7 +77,45 @@ public class HelloController{
 
 
     public void initialize(){
+        passOne.setOnAction(event -> {
+            System.out.println("dsafsadf");
+        });
 
+        writeYourCity.setOnAction(event -> {
+            otherCity.setDisable(visibility);
+            city.setDisable(!visibility);
+            visibility = !visibility;
+            System.out.println(visibility);
+        });
+
+        ObservableList<String> countries = FXCollections.observableArrayList(
+                "Россия","США","Япония", "Финляндия"
+        );
+        country.setItems(countries);
+
+        country.setOnAction(event -> {
+            ctry = country.getValue();
+            switch (ctry){
+                case "Россия":
+                    cities = FXCollections.observableArrayList(
+                            "Питер", "Москва", "Иваново", "Ярославль");
+                    break;
+                case "США":
+                    cities = FXCollections.observableArrayList(
+                            "Вашингтон", "Нью-Йорк", "Сиэтл", "Чикаго");
+                    break;
+                case "Япония":
+                    cities = FXCollections.observableArrayList(
+                            "Токио", "Хиросима", "Нагасаки", "Киото");
+                    break;
+                case "Финляндия":
+                    cities = FXCollections.observableArrayList(
+                            "Хельсинки", "Тампере", "Куопио", "Турку");
+                    break;
+            }
+            city.setItems(cities);
+
+        });
 
         SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.
                 IntegerSpinnerValueFactory(0,250,175);
@@ -86,35 +133,43 @@ public class HelloController{
 
 
         registerButton.setOnAction(event -> {
-            Parameters.name = name.getText().trim();
-            Parameters.surname = surname.getText().trim();
-            Parameters.age = ageLabel.getText().trim();
-            Parameters.sex = String.valueOf(radioGroup.getSelectedToggle()).substring(
-                    String.valueOf(radioGroup.getSelectedToggle()).indexOf("'")+1,
-                    String.valueOf(radioGroup.getSelectedToggle()).lastIndexOf("'")
-            );
-            Parameters.height = String.valueOf(height.getValue());
-            Parameters.country = "&&&";
-            Parameters.city = "&&&";
-            Parameters.street = street.getText().trim();
-            Parameters.house = house.getText().trim();
-            Parameters.flat = flat.getText().trim();
+            if (passOne.getText().equals(passTwo.getText())){
+                Parameters.name = name.getText().trim();
+                Parameters.surname = surname.getText().trim();
+                Parameters.age = ageLabel.getText().trim();
+                Parameters.sex = String.valueOf(radioGroup.getSelectedToggle()).substring(
+                        String.valueOf(radioGroup.getSelectedToggle()).indexOf("'")+1,
+                        String.valueOf(radioGroup.getSelectedToggle()).lastIndexOf("'")
+                );
+                Parameters.height = String.valueOf(height.getValue());
 
-            char[] preTopic = topic.getText().trim().toCharArray();
-            int iter = 0;
-            for (char letter : preTopic){
-                if(iter == 35){
-                    iter = 0;
-                    Parameters.topic += "\n";
+                Parameters.country = country.getValue();
+
+                if(visibility) Parameters.city = otherCity.getText();
+                else Parameters.city = city.getValue();
+
+                Parameters.street = street.getText().trim();
+                Parameters.house = house.getText().trim();
+                Parameters.flat = flat.getText().trim();
+
+                char[] preTopic = topic.getText().trim().toCharArray();
+                int iter = 0;
+                for (char letter : preTopic){
+                    if(iter == 35){
+                        iter = 0;
+                        Parameters.topic += "\n";
+                    }
+                    Parameters.topic += letter;
+                    iter++;
                 }
-                Parameters.topic += letter;
-                iter++;
-            }
 
-            Parameters.login = login.getText().trim();
-            Parameters.password = passOne.getText().trim(); //Логика паролей
+                Parameters.login = login.getText().trim();
+                Parameters.password = passOne.getText().trim(); //Логика паролей
 
-            openNewScene("/com/example/regformstepik/info.fxml");
+                openNewScene("/com/example/regformstepik/info.fxml");
+            } else warning.setText("Пароли не совпадают!");
+
+
         });
 
     }

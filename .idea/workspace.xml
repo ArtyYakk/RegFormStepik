@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ff2d1197-658c-4dcc-ba64-3cf0e333bcc8" name="Changes" comment="+ ToggleGroup&#10;+ SpinnerFactory&#10;+ &quot;\n&quot; in TextArea">
+    <list default="true" id="ff2d1197-658c-4dcc-ba64-3cf0e333bcc8" name="Changes" comment="+ ComboBox'ы + CheckBox&#10;+ Сверка паролей">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/example/regformstepik/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/regformstepik/HelloApplication.java" afterDir="false" />
@@ -111,7 +111,14 @@
       <option name="project" value="LOCAL" />
       <updated>1664384973225</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="+ ToggleGroup&#10;+ SpinnerFactory&#10;+ &quot;\n&quot; in TextArea&#10;&#10;+ ComboBox'ы + CheckBox&#10;+ Сверка паролей">
+      <created>1664393698936</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1664393698936</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -139,6 +146,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="+ ToggleGroup&#10;+ SpinnerFactory&#10;+ &quot;\n&quot; in TextArea" />
-    <option name="LAST_COMMIT_MESSAGE" value="+ ToggleGroup&#10;+ SpinnerFactory&#10;+ &quot;\n&quot; in TextArea" />
+    <MESSAGE value="+ ToggleGroup&#10;+ SpinnerFactory&#10;+ &quot;\n&quot; in TextArea&#10;&#10;+ ComboBox'ы + CheckBox&#10;+ Сверка паролей" />
+    <MESSAGE value="+ ComboBox'ы + CheckBox&#10;+ Сверка паролей" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ ComboBox'ы + CheckBox&#10;+ Сверка паролей" />
   </component>
 </project>
